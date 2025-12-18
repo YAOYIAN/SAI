@@ -1,0 +1,16 @@
+spring:
+  application:
+    name:spring-ai-mcp-client
+  profiles:
+    active: test
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      base-url: ${OPENAI_BASE_URL}
+      chat:
+        options:
+          model: ${OPENAI_MODEL}
+
+logging:
+  level:
+    root: info
