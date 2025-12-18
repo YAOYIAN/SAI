@@ -2,7 +2,10 @@ package com.yya.service;
 
 import com.yya.bean.ChatEntity;
 import org.springframework.ai.chat.model.ChatResponse;
+import org.springframework.ai.document.Document;
 import reactor.core.publisher.Flux;
+
+import java.util.List;
 
 public interface ChatService {
     public String chatTest(String prompt);
@@ -12,4 +15,6 @@ public interface ChatService {
     public Flux<String> streamStr(String prompt);
 
     public void doChat(ChatEntity chatEntity);
+
+    public void doChatRagSearch(ChatEntity chatEntity, List<Document> ragContext);
 }
