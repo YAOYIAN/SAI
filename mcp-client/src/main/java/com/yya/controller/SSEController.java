@@ -33,4 +33,30 @@ public class SSEController {
         return "消息发送成功";
     }
 
+    // ADD 事件
+    @GetMapping("sendMessageAdd")
+    public Object sendMessageAdd(@RequestParam String userId, @RequestParam String message) throws Exception {
+        for(int i = 0; i<5; i++){
+            Thread.sleep(100);
+            SSEServer.sendMsg(userId, message, SSEMsgType.ADD);
+        }
+        return "OK";
+    }
+
+    @GetMapping("sendMessageCustom")
+    public Object sendMessageCustom(@RequestParam String userId, @RequestParam String message) throws Exception {
+        for(int i = 0; i<2; i++){
+            Thread.sleep(100);
+            SSEServer.sendMsg(userId, message, SSEMsgType.CUSTOM_EVENT);
+        }
+        return "Ok_Custom";
+    }
+
+    // 群发消息给所有人
+    @GetMapping("sendMessageAll")
+    public Object sendMessageAll(@RequestParam String message) {
+        SSEServer.sendMsgToAllUsers(message);
+        return "消息发送成功";
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.yya.service;
 
+import com.yya.bean.ChatEntity;
 import org.springframework.ai.chat.model.ChatResponse;
 import reactor.core.publisher.Flux;
 
@@ -9,4 +10,6 @@ public interface ChatService {
     public Flux<ChatResponse> streamResponse(String prompt);
 
     public Flux<String> streamStr(String prompt);
+
+    public void doChat(ChatEntity chatEntity);
 }

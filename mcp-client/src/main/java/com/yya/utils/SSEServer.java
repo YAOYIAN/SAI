@@ -41,6 +41,16 @@ public class SSEServer {
 
     }
 
+    public static void sendMsgToAllUsers(
+                               String message){
+        if(CollectionUtils.isEmpty(sseClients)){
+            return;
+        }
+        sseClients.forEach((userId,sseEmitter)->{
+                            sendEmitterMessage(sseEmitter,userId,message,SSEMsgType.MESSAGE);
+        });
+    }
+
     private static void sendEmitterMessage(SseEmitter sseEmitter,
                                           String userId,
                                           String message,
