@@ -17,4 +17,6 @@ public interface ChatService {
     public void doChat(ChatEntity chatEntity);
 
     public void doChatRagSearch(ChatEntity chatEntity, List<Document> ragContext);
+
+    public void doInternetSearch(ChatEntity chatEntity);
 }

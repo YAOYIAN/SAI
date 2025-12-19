@@ -24,3 +24,9 @@ spring:
 logging:
   level:
     root: info
+
+internet:
+  websearch:
+    searxng:
+      url: http://localhost:6080/search
+      counts: 8

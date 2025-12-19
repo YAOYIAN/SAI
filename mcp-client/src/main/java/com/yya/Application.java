@@ -12,3 +12,4 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 }
+// http://172.27.104.214:5501/pages/spring-ai.html

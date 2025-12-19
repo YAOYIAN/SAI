@@ -1,4 +1,5 @@
 server:
   port: 9999
 
-
+website:
+  domin: 172.27.104.214:5501
