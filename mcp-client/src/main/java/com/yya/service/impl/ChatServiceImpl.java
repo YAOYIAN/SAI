@@ -10,9 +10,12 @@ import com.yya.service.SearXngService;
 import com.yya.utils.SSEServer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
+import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.document.Document;
+import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.stringtemplate.v4.ST;
@@ -31,8 +34,10 @@ public class ChatServiceImpl implements ChatService {
     @Autowired
     private SearXngService searXngService;
 
-    public ChatServiceImpl(ChatClient.Builder chatClientBuilder) {
-        this.chatClient = chatClientBuilder.defaultSystem("你是一个聪明的人工智能助手，可以解决很多问题，你的名字叫‘Bill’").build();
+    private ChatMemory chatMemory;
+
+    public ChatServiceImpl(ChatClient.Builder chatClientBuilder, ToolCallbackProvider tools, ChatMemory chatMemory) {
+        this.chatClient = chatClientBuilder.defaultToolCallbacks(tools).defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build()).defaultSystem("你的名字叫‘Bill’").build();
     }
     @Override
     public String chatTest(String prompt) {

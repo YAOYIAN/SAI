@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "bingcnmcp": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "bing-cn-mcp"
+      ]
+    }
+  }
+}
