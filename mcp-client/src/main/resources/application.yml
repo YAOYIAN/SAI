@@ -4,6 +4,13 @@ spring:
   profiles:
     active: test
   ai:
+    embedding:
+      transformers:
+        # 本地模型目录（必须包含model.onnx/tokenizer.json等文件）
+        model-directory: onnx/all-MiniLM-L6-v2
+      # 1.x 禁用远程下载
+    cache:
+      allow-remote-download: false
     mcp:
       client:
         enabled: true

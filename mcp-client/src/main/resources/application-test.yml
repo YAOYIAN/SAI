@@ -2,4 +2,4 @@ server:
   port: 9090
 
 website:
-  domin: 172.17.13.225:5501
+  domin:  172.17.13.225:5501

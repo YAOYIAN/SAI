@@ -37,7 +37,9 @@ public class ChatServiceImpl implements ChatService {
     private ChatMemory chatMemory;
 
     public ChatServiceImpl(ChatClient.Builder chatClientBuilder, ToolCallbackProvider tools, ChatMemory chatMemory) {
-        this.chatClient = chatClientBuilder.defaultToolCallbacks(tools).defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build()).defaultSystem("你的名字叫‘Bill’").build();
+        this.chatClient = chatClientBuilder.defaultToolCallbacks(tools).defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
+             //   .defaultSystem("你的名字叫‘Bill’")
+                .build();
     }
     @Override
     public String chatTest(String prompt) {
