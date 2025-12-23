@@ -34,7 +34,7 @@ public class SearXngServiceImpl implements SearXngService {
     public List<SearchResult> search(String query) {
         HttpUrl url = HttpUrl.get(SEARXNG_URL).newBuilder()
                     .addQueryParameter("q",query)
-                    .addQueryParameter("format","json").build();
+                    .addQueryParameter("formats","json").build();
         log.info("SearXng搜索URL：{}",url.url());
         Request request = new Request.Builder()
                 .url(url)

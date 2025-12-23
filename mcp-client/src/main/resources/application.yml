@@ -2,30 +2,8 @@ spring:
   application:
     name:spring-ai-mcp-client
   profiles:
-    active: test
+    active: prod
   ai:
-    embedding:
-      transformers:
-        # 本地模型目录（必须包含model.onnx/tokenizer.json等文件）
-        model-directory: onnx/all-MiniLM-L6-v2
-      # 1.x 禁用远程下载
-    cache:
-      allow-remote-download: false
-    mcp:
-      client:
-        enabled: true
-        name: spring-ai-mcp-client-1.0.0
-        type: ASYNC
-        sse:
-          connections:
-            server1:
-              url: https://mcp.amap.com
-              sse-endpoint: /sse?key=a02b57dc24a5fb557d4bad11345a97cb
-            server2:
-              url: http://localhost:9060
-              sse-endpoint: /sse
-        stdio:
-          servers-configuration: classpath:mcp-server.json
     openai:
       api-key: ${OPENAI_API_KEY}
       base-url: ${OPENAI_BASE_URL}
@@ -37,11 +15,6 @@ spring:
         initialize-schema: true         # 是否初始化所需的模式
         index-name: lee-vectorstore     # 用于存储向量的索引名称
         prefix: 'embedding:'
-  data:
-    redis:
-      host: 127.0.0.1
-      port: 6379
-      password: 123456
 
 logging:
   level:

@@ -3,3 +3,31 @@ server:
 
 website:
   domin:  172.17.13.225:5501
+
+
+spring:
+  ai:
+    mcp:
+      client:
+        enabled: true
+        name: spring-ai-mcp-client-1.0.0
+        type: ASYNC
+        sse:
+          connections:
+            server1:
+              url: https://mcp.amap.com
+              sse-endpoint: /sse?key=a02b57dc24a5fb557d4bad11345a97cb
+            server2:
+              url: http://localhost:9060
+              sse-endpoint: /sse
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password: 123456
+
+internet:
+  websearch:
+    searxng:
+      url: http://localhost:6080/search
+      counts: 8
