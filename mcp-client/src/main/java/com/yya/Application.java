@@ -34,7 +34,7 @@ public class Application {
 // http://47.250.95.26:6080/   （公网ip） 修改首选项，比如搜索引擎
 // /home/docker/SearXNG 中修改format: - json
 
-// 进入/usr/local/nginx/sbin目录启动nginx
+//  cd /usr/local/nginx/sbin目录启动nginx
 //    ```
 //    ./nginx
 //    ```
